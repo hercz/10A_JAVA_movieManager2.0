@@ -1,23 +1,23 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Movie extends Product implements Buyable {
 
 	private Genre genre;
 	private long duration;
 	private double rate;
-	private ArrayList<Person> cast;
+	List<Person> cast;
 	private int price;
 
-	public Movie(String id, String title, Person person, Genre genre, long duration, double rate,
-			ArrayList<Person> cast) {
-		super(id, title, person);
+	public Movie(String title, Person person, Genre genre, long duration, double rate, List<Person> cast, int price) {
+		super(title, person);
 		this.genre = genre;
 		this.duration = duration;
 		this.rate = rate;
 		this.cast = cast;
-		// this.price = price;
+		this.price = price;
 
 	}
 
@@ -45,7 +45,7 @@ public class Movie extends Product implements Buyable {
 		this.rate = rate;
 	}
 
-	public ArrayList<Person> getCast() {
+	public List<Person> getCast() {
 		return cast;
 	}
 
@@ -61,6 +61,21 @@ public class Movie extends Product implements Buyable {
 	public int getPrice() {
 		// TODO Auto-generated method stub
 		return price;
+
 	}
 
+	@Override
+	public long getInvestment() {
+		long investment = 0;
+		for (Person person : cast) {
+			investment += person.salary;
+		}
+		return investment;
+
+	}
+
+	@Override
+	public String toString() {
+		return id + " " + title + " " + person + " " + genre + " " + duration + " " + rate + " " + cast;
+	}
 }

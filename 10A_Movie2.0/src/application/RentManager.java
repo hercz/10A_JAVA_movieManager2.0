@@ -1,5 +1,8 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RentManager {
 	public static void main(String[] args) {
 		// PERSONS
@@ -27,19 +30,36 @@ public class RentManager {
 		Person c3 = new Person("Nyomo", "Reka", Gender.FEMALE, 22);
 		Person c4 = new Person("Kopcos", "Tibor", Gender.MALE, 10);
 		Person c5 = new Person("Mathazer", "Imre", Gender.MALE, 18);
-
 		// PERSON TEST
 		System.out.println(c1.toString());
 
 		// MOVIES
+		List<Person> movie1cast = new ArrayList<Person>();
+		movie1cast.add(a1);
+		movie1cast.add(a2);
+		Product movie1 = new Movie("Mr&Mrs Smith", c2, Genre.ACTION, 120, 8.5, movie1cast, 15);
 
-		// Game g1 = new Game()
+		List<Person> movie2cast = new ArrayList<Person>();
+		movie2cast.add(a3);
+		movie2cast.add(a4);
+		movie2cast.add(a5);
+		Product movie2 = new Movie("Alien", c3, Genre.COMEDY, 120, 8.0, movie2cast, 25);
+
 		// GAMES
+		List<Person> game1cast = new ArrayList<Person>();
+		game1cast.add(s1);
+		game1cast.add(s2);
+		Product game1 = new Game("Halo5", c4, false, game1cast, 12);
+
+		List<Person> game2cast = new ArrayList<Person>();
+		game2cast.add(s2);
+		game2cast.add(s3);
+		Product game2 = new Game("Halo6", c5, true, game2cast, 17);
 
 		// BOOKS
-		Book book1 = new Book(IdGenerator.generate(), "szazevesember...", c1, ba1);
+		Product book1 = new Book("Egykonyvcim", c1, ba1);
+		Product book2 = new Book("Ketkonyvcim", c2, ba2);
 
-		System.out.println(book1.toString());
 	}
 
 }

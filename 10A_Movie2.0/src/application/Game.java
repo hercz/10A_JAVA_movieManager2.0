@@ -1,14 +1,14 @@
 package application;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Game extends Product implements Buyable {
-	private boolean preOrdered;
-	private ArrayList<Person> staff;
-	private int price;
+	boolean preOrdered;
+	List<Person> staff;
+	int price;
 
-	public Game(String id, String title, Person person, boolean preOrdered, ArrayList<Person> staff, int price) {
-		super(id, title, person);
+	public Game(String title, Person person, boolean preOrdered, List<Person> staff, int price) {
+		super(title, person);
 		this.preOrdered = preOrdered;
 		this.staff = staff;
 		this.price = price;
@@ -22,12 +22,12 @@ public class Game extends Product implements Buyable {
 		this.preOrdered = preOrdered;
 	}
 
-	public ArrayList<Person> getStaff() {
+	public List<Person> getStaff() {
 		return staff;
 	}
 
-	public void setStaff(ArrayList<Person> staff) {
-		this.staff = staff;
+	public void setStaff(List<Person> staff) {
+		this.staff = (List<Person>) staff;
 	}
 
 	@Override
@@ -41,4 +41,18 @@ public class Game extends Product implements Buyable {
 		this.price = price;
 	}
 
+	@Override
+	public long getInvestment() {
+		long investment = 0;
+		for (Person person : staff) {
+			investment += person.salary;
+		}
+		return investment;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
 }

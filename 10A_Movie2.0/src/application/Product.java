@@ -1,12 +1,12 @@
 package application;
 
-public class Product {
+public abstract class Product {
 	protected String id;
 	protected String title;
 	protected Person person;
 
-	public Product(String id, String title, Person person) {
-		this.id = id;
+	public Product(String title, Person person) {
+		this.id = IdGenerator.generate(this);
 		this.title = title;
 		this.person = person;
 	}
@@ -19,8 +19,6 @@ public class Product {
 		return person;
 	}
 
-	public long getInvestment() {
-		return 0; // sum of the
-	}
+	public abstract long getInvestment();
 
 }
