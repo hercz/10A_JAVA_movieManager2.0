@@ -59,7 +59,6 @@ public class Movie extends Product implements Buyable {
 
 	@Override
 	public int getPrice() {
-		// TODO Auto-generated method stub
 		return price;
 
 	}
@@ -76,6 +75,7 @@ public class Movie extends Product implements Buyable {
 
 	@Override
 	public String toString() {
-		return id + " " + title + " " + person + " " + genre + " " + duration + " " + rate + " " + cast;
+		return "Unique ID: " + id + "\nTitle: " + title + "\nGenre: " + genre + "\nDuration: " + duration + "\nRate: "
+				+ rate + "\nCast: " + cast;
 	}
 }

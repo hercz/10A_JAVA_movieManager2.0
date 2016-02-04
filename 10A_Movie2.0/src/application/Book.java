@@ -24,6 +24,6 @@ public class Book extends Product {
 
 	@Override
 	public String toString() {
-		return id + " " + title + " " + person + " " + author;
+		return "Unique ID: " + id + "\nTitle: " + title + "\nCustomer: " + person + "\nAuthor: " + author;
 	}
 }

@@ -4,6 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentManager {
+
+	public static int totalIncome(List<Buyable> buyables) {
+		int totalIncome = 0;
+		for (Buyable buyable : buyables) {
+			totalIncome += buyable.getPrice();
+		}
+		return totalIncome;
+
+	}
+
 	public static void main(String[] args) {
 		// PERSONS
 		// actors/actresses for movies
@@ -30,35 +40,47 @@ public class RentManager {
 		Person c3 = new Person("Nyomo", "Reka", Gender.FEMALE, 22);
 		Person c4 = new Person("Kopcos", "Tibor", Gender.MALE, 10);
 		Person c5 = new Person("Mathazer", "Imre", Gender.MALE, 18);
-		// PERSON TEST
-		System.out.println(c1.toString());
 
 		// MOVIES
 		List<Person> movie1cast = new ArrayList<Person>();
 		movie1cast.add(a1);
 		movie1cast.add(a2);
-		Product movie1 = new Movie("Mr&Mrs Smith", c2, Genre.ACTION, 120, 8.5, movie1cast, 15);
+		Movie movie1 = new Movie("Mr&Mrs Smith", c2, Genre.ACTION, 120, 8.5, movie1cast, 15);
 
 		List<Person> movie2cast = new ArrayList<Person>();
 		movie2cast.add(a3);
 		movie2cast.add(a4);
 		movie2cast.add(a5);
-		Product movie2 = new Movie("Alien", c3, Genre.COMEDY, 120, 8.0, movie2cast, 25);
+		Movie movie2 = new Movie("Alien", c3, Genre.COMEDY, 120, 8.0, movie2cast, 25);
 
 		// GAMES
 		List<Person> game1cast = new ArrayList<Person>();
 		game1cast.add(s1);
 		game1cast.add(s2);
-		Product game1 = new Game("Halo5", c4, false, game1cast, 12);
+		Game game1 = new Game("Halo5", c4, false, game1cast, 12);
 
 		List<Person> game2cast = new ArrayList<Person>();
 		game2cast.add(s2);
 		game2cast.add(s3);
-		Product game2 = new Game("Halo6", c5, true, game2cast, 17);
+		Game game2 = new Game("Halo6", c5, true, game2cast, 10);
 
 		// BOOKS
-		Product book1 = new Book("Egykonyvcim", c1, ba1);
-		Product book2 = new Book("Ketkonyvcim", c2, ba2);
+		Book book1 = new Book("Egykonyvcim", c1, ba1);
+		Book book2 = new Book("Ketkonyvcim", c2, ba2);
+
+		// total income
+		List<Buyable> buyables = new ArrayList<Buyable>();
+		buyables.add(game1);
+		buyables.add(game2);
+		buyables.add(movie1);
+		buyables.add(movie2);
+
+		// TESTS
+		System.out.println("The total income from the buyable products:" + totalIncome(buyables) + "$");
+		System.out.println("\nProduct examples:\n");
+		System.out.println("\n" + movie1 + "\nTOTAL INVESTMENT: " + movie1.getInvestment() + "$");
+		System.out.println("\n" + game2 + "\nTOTAL INVESTMENT: " + game2.getInvestment() + "$");
+		System.out.println("\n" + book1 + "\nTOTAL INVESTMENT: " + book1.getInvestment() + "$");
 
 	}
 

@@ -11,7 +11,7 @@ public class Game extends Product implements Buyable {
 		super(title, person);
 		this.preOrdered = preOrdered;
 		this.staff = staff;
-		this.price = price;
+		this.price = (int) (preOrdered ? price * 0.8 : price);
 	}
 
 	public boolean isPreOrdered() {
@@ -33,8 +33,6 @@ public class Game extends Product implements Buyable {
 	@Override
 	public int getPrice() {
 		return price;
-		// TODO Auto-generated method stub
-
 	}
 
 	public void setPrice(int price) {
@@ -52,7 +50,7 @@ public class Game extends Product implements Buyable {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "Unique ID: " + id + "\n" + "Title: " + title + "\n" + "Customer: " + person + "\n" + "Preodered: "
+				+ preOrdered + "\n" + "Staff: " + staff + "\n" + "Price: " + price;
 	}
 }

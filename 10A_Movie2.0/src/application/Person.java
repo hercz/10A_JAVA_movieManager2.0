@@ -48,6 +48,6 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return firstName + " " + lastName + " " + gender + " " + salary;
+		return "\n" + firstName + " " + lastName + " - " + gender + " - " + "Salary: " + salary + "$";
 	}
 }
