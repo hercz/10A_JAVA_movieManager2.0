@@ -11,7 +11,7 @@ public class Game extends Product implements Buyable {
 		super(title, person);
 		this.preOrdered = preOrdered;
 		this.staff = staff;
-		this.price = (int) (preOrdered ? price * 0.8 : price);
+		this.price = price;
 	}
 
 	public boolean isPreOrdered() {
@@ -32,7 +32,12 @@ public class Game extends Product implements Buyable {
 
 	@Override
 	public int getPrice() {
+		if (preOrdered) {
+			price = (int) (price * 0.8);
+		}
 		return price;
+
+		// (int) (preOrdered ? price * 0.8 : price);
 	}
 
 	public void setPrice(int price) {

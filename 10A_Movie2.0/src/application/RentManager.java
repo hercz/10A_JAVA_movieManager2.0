@@ -11,7 +11,6 @@ public class RentManager {
 			totalIncome += buyable.getPrice();
 		}
 		return totalIncome;
-
 	}
 
 	public static void main(String[] args) {
