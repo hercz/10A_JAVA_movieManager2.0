@@ -1,4 +1,4 @@
-# 10A_Movies_v2.0
+# 10A_JAVA_movieManager2.0
 
 This is a simple Java application, where we can manage products (books, games, movies). 
 [Codecool](https://codecool.hu/) school project.
